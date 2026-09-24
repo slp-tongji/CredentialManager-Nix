@@ -75,7 +75,7 @@
       description = ''
         Optional systemd `EnvironmentFile` to load environment variables from
         (one `KEY=value` per line). This is where the OIDC client secret should
-        be provided as `CM_OIDC_SECRET=...`, so it never appears in the process
+        be provided as `CREDENTIAL_MANAGER_ARGUMENT_OIDC_SECRET=...`, so it never appears in the process
         command line.
 
         It is common to generate this from a secret managed by agenix/sops.

@@ -24,7 +24,7 @@ Or try it directly from the CLI:
 
 ```console
 $ nix shell github:slp-tongji-68462dff5c2b4d79b999f6e/CredentialManager-Nix
-$ CM_OIDC_SECRET=my-secret Tjslp.CredentialManager \
+$ CREDENTIAL_MANAGER_ARGUMENT_OIDC_SECRET=my-secret Tjslp.CredentialManager \
     --listen http://127.0.0.1:8080 \
     --title "My Platform" \
     --data /var/lib/credential-manager \
@@ -84,12 +84,13 @@ Options under `services.credential-manager`:
 | `administrator` | str | (required) | Dex `groups` value that grants administrator access |
 | `oidc` | str | (required) | OIDC authority (Dex) URL |
 | `oidcId` | str | (required) | OIDC client id |
-| `environmentFile` | nullOr path | `null` | systemd `EnvironmentFile` providing `CM_OIDC_SECRET` |
+| `environmentFile` | nullOr path | `null` | systemd `EnvironmentFile` providing `CREDENTIAL_MANAGER_ARGUMENT_OIDC_SECRET` |
 
 The service assumes it sits behind a same-host reverse proxy, so bind to
 loopback and let the reverse proxy terminate TLS in front of it. The OIDC
-client secret is provided via `environmentFile` (as `CM_OIDC_SECRET=...`) so it
-never appears on the process command line.
+client secret is provided via `environmentFile` (as
+`CREDENTIAL_MANAGER_ARGUMENT_OIDC_SECRET=...`) so it never appears on the
+process command line.
 
 ---
 
