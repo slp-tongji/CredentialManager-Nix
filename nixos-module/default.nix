@@ -109,25 +109,6 @@
         WorkingDirectory = "/var/lib/${config.services.credential-manager.stateDirectory}";
 
         Restart = "on-failure";
-        RestartSec = "5s";
-
-        CapabilityBoundingSet = "";
-        LockPersonality = true;
-        NoNewPrivileges = true;
-        PrivateDevices = true;
-        PrivateTmp = true;
-        ProtectClock = true;
-        ProtectControlGroups = true;
-        ProtectHome = true;
-        ProtectKernelLogs = true;
-        ProtectKernelModules = true;
-        ProtectKernelTunables = true;
-        ProtectSystem = "strict";
-        RestrictAddressFamilies = [ "AF_INET" "AF_INET6" ];
-        RestrictRealtime = true;
-        RestrictSUIDSGID = true;
-        SystemCallArchitectures = "native";
-        UMask = "0077";
       };
     };
   };
