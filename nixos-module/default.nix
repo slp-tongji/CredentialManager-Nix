@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  defaultPackage,
+  pkgs,
   ...
 }:
 
@@ -11,7 +11,7 @@
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = defaultPackage;
+      default = pkgs.callPackage ../package { };
       description = "The CredentialManager package to use.";
     };
 

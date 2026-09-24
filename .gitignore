@@ -1,11 +1,2 @@
-# Nix build outputs
-result
-result-*
-
-# dotnet dev shell / local NuGet cache (created by the flake devShell)
-.dotnet/
-.nuget-packages/
-.nuget-http-cache/
-
-# direnv
-.direnv/
+/result
+/.direnv/

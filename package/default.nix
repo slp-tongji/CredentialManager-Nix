@@ -22,7 +22,7 @@ buildDotnetModule (finalAttrs: {
 
   executables = [ "Tjslp.CredentialManager" ];
 
-  nugetDeps = ./deps.json;
+  nugetDeps = ./deps.nix;
 
   strictDeps = true;
   __structuredAttrs = true;

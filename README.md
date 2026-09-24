@@ -8,8 +8,10 @@
 
 | Output | 说明 |
 |--------|------|
-| `packages.<system>.default` | 打好的主程序包（`Tjslp.CredentialManager`） |
-| `nixosModules.default` | NixOS module，暴露 `services.credential-manager` |
+| `packages.<system>.credential-manager` | 打好的主程序包（`Tjslp.CredentialManager`） |
+| `packages.<system>.default` | `credential-manager` 的别名 |
+| `nixosModules.credential-manager` | NixOS module，暴露 `services.credential-manager` |
+| `nixosModules.default` | `credential-manager` 的别名 |
 
 ## 作为包使用
 
@@ -40,7 +42,7 @@ nix build .#credential-manager
 
 包通过 `fetchFromGitHub` 锁定上游源码的 tag。上游仓库用 `v<version>` 形式的 tag（如 `v0.0.1`）：
 
-1. 在 `package.nix` 里更新 `version`（`rev` 会自动跟着变成 `v<version>`）。
+1. 在 `package/default.nix` 里更新 `version`（`rev` 会自动跟着变成 `v<version>`）。
 2. 重新计算 `hash`：
 
    ```bash
@@ -52,7 +54,7 @@ nix build .#credential-manager
 
    ```bash
    nix build '.#default.passthru.fetch-deps' --no-link --print-out-paths
-   # 运行产出的脚本，把 deps.json 写回仓库（先临时把 deps.json 换成旧值再跑也行）
+   # 运行产出的脚本，把 package/deps.nix 写回仓库（先临时把 deps.nix 换成旧值再跑也行）
    ```
 
 ## 作为 NixOS module 使用

@@ -6,7 +6,10 @@
   };
 
   outputs =
-    { self, nixpkgs }:
+    {
+      self,
+      nixpkgs,
+    }:
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
     in
@@ -14,19 +17,21 @@
       packages = forAllSystems (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          package = nixpkgs.legacyPackages.${system}.callPackage ./package { };
         in
         {
-          default = pkgs.callPackage ./package.nix { };
+          credential-manager = package;
+          default = package;
         }
       );
 
-      nixosModules.default =
-        { config, lib, pkgs, ... }:
-        import ./module.nix {
-          config = config;
-          lib = lib;
-          defaultPackage = self.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      nixosModules =
+        let
+          module = ./nixos-module;
+        in
+        {
+          credential-manager = module;
+          default = module;
         };
     };
 }
