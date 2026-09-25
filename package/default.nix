@@ -7,13 +7,13 @@
 
 buildDotnetModule (finalAttrs: {
   pname = "credential-manager";
-  version = "0.0.3";
+  version = "0.0.4";
 
   src = fetchFromGitHub {
     owner = "slp-tongji-68462dff5c2b4d79b999f6e";
     repo = "CredentialManager";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-fnuNnXe2UpGz3e+3dDyTJN2I+5gDLfGCrmr8qoDhw+s=";
+    hash = "sha256-HHhrQHrrHjztQbyxsuCetERt6j0NL/GBI8fJZrXcIHs=";
   };
 
   projectFile = "src/Tjslp.CredentialManager/Tjslp.CredentialManager.csproj";
