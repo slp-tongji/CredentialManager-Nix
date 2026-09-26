@@ -1,13 +1,13 @@
 # CredentialManager-Nix
 
-Nix packaging for [CredentialManager](https://github.com/slp-tongji-68462dff5c2b4d79b999f6e/CredentialManager) — an OIDC login + self-managed downstream credentials web service.
+Nix packaging for [CredentialManager](https://github.com/slp-tongji/CredentialManager) — an OIDC login + self-managed downstream credentials web service.
 
 ## Adding as a flake input
 
 ```nix
 {
   inputs = {
-    credential-manager.url = "github:slp-tongji-68462dff5c2b4d79b999f6e/CredentialManager-Nix";
+    credential-manager.url = "github:slp-tongji/CredentialManager-Nix";
   };
 }
 ```
@@ -23,7 +23,7 @@ credential-manager.packages.${system}.credential-manager
 Or try it directly from the CLI:
 
 ```console
-$ nix shell github:slp-tongji-68462dff5c2b4d79b999f6e/CredentialManager-Nix
+$ nix shell github:slp-tongji/CredentialManager-Nix
 $ CREDENTIAL_MANAGER_ARGUMENT_OIDC_SECRET=my-secret Tjslp.CredentialManager \
     --listen http://127.0.0.1:8080 \
     --title "My Platform" \
@@ -43,7 +43,7 @@ A module is exposed as `nixosModules.credential-manager` (also available as
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    credential-manager.url = "github:slp-tongji-68462dff5c2b4d79b999f6e/CredentialManager-Nix";
+    credential-manager.url = "github:slp-tongji/CredentialManager-Nix";
   };
 
   outputs = { nixpkgs, credential-manager, ... }: {

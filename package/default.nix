@@ -7,13 +7,13 @@
 
 buildDotnetModule (finalAttrs: {
   pname = "credential-manager";
-  version = "0.0.4";
+  version = "0.0.5";
 
   src = fetchFromGitHub {
-    owner = "slp-tongji-68462dff5c2b4d79b999f6e";
+    owner = "slp-tongji";
     repo = "CredentialManager";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-HHhrQHrrHjztQbyxsuCetERt6j0NL/GBI8fJZrXcIHs=";
+    hash = "sha256-rUBCCfd8J5oRg3qWm8k2HdDCnFnwPFVannDLpo3aekQ=";
   };
 
   projectFile = "src/Tjslp.CredentialManager/Tjslp.CredentialManager.csproj";
@@ -29,7 +29,7 @@ buildDotnetModule (finalAttrs: {
 
   meta = {
     description = "OIDC login + self-managed downstream credentials web service";
-    homepage = "https://github.com/slp-tongji-68462dff5c2b4d79b999f6e/CredentialManager";
+    homepage = "https://github.com/slp-tongji/CredentialManager";
     license = lib.licenses.mit;
     mainProgram = "Tjslp.CredentialManager";
     maintainers = [ ];
